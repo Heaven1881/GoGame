@@ -14,13 +14,13 @@ func (p *Position) Rand(r int)  {
 	p.Y = float64(rand.Intn(r))
 }
 
-func (p *Position) DistanceTo(other *Position) float64 {
+func (p *Position) DistTo(other *Position) float64 {
 	var disX = p.X - other.X
 	var disY = p.Y - other.Y
 	return math.Sqrt(disX*disX + disY*disY)
 }
 
-func (p *Position) DirectionTo(other *Position) float64 {
+func (p *Position) DirTo(other *Position) float64 {
 	return math.Atan((other.Y-p.Y)/(other.X-p.X)) / math.Pi * 180
 }
 

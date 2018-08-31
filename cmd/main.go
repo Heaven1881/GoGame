@@ -3,6 +3,7 @@ package main
 import (
 	"ecs/entity"
 	"ecs/system"
+	"ecs/system/sysmgr"
 	"math/rand"
 	"time"
 )
@@ -12,7 +13,7 @@ import _ "github.com/oakmound/oak"
 func main() {
 	rand.Seed(time.Now().Unix())
 
-	var sysMgr = system.NewSysManager()
+	var sysMgr = sysmgr.New()
 
 	var mouse = entity.NewSimpleEntity()
 	mouse.CompPosition.Rand(100)
@@ -24,8 +25,8 @@ func main() {
 
 	sysMgr.AddEntity(mouse)
 	sysMgr.AddEntity(cat)
-	sysMgr.AddSystem(system.SimpleMover{})
-	sysMgr.AddSystem(system.AIMoveToTarget{})
+	sysMgr.AddSubSystem(system.SimpleMover{})
+	sysMgr.AddSubSystem(system.AIMoveToTarget{})
 
 	mouse.Print()
 	for i := 0; i < 10; i++ {
