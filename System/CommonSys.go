@@ -25,10 +25,6 @@ func DistanceBetween(e1 *Entity.SimpleEntity, e2 *Entity.SimpleEntity) float64 {
 	}
 }
 
-func dir(x1, y1, x2, y2 float64) float64 {
-	return math.Atan((y2-y1)/(x2-x1)) / math.Pi * 180
-}
-
 type AIMoveToTarget struct {
 }
 
