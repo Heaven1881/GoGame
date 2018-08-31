@@ -1,14 +1,14 @@
-package System
+package system
 
 import (
-	"../Entity"
+	"ecs/entity"
 	"math"
 )
 
 type SimpleMover struct {
 }
 
-func (SimpleMover) tick(sys *SysManager, e *Entity.SimpleEntity) {
+func (SimpleMover) tick(sys *SysManager, e *entity.SimpleEntity) {
 	if e.CompMover != nil &&
 		e.CompPosition != nil {
 		e.CompPosition.X += math.Cos(math.Pi*e.CompMover.Dir/180.0) * e.CompMover.Speed
@@ -16,7 +16,7 @@ func (SimpleMover) tick(sys *SysManager, e *Entity.SimpleEntity) {
 	}
 }
 
-func DistanceBetween(e1 *Entity.SimpleEntity, e2 *Entity.SimpleEntity) float64 {
+func DistanceBetween(e1 *entity.SimpleEntity, e2 *entity.SimpleEntity) float64 {
 	if e1.CompPosition != nil && e2.CompPosition != nil {
 		return e1.CompPosition.DistanceTo(e2.CompPosition)
 	} else {
@@ -28,7 +28,7 @@ func DistanceBetween(e1 *Entity.SimpleEntity, e2 *Entity.SimpleEntity) float64 {
 type AIMoveToTarget struct {
 }
 
-func (AIMoveToTarget) tick(sys *SysManager, e *Entity.SimpleEntity) {
+func (AIMoveToTarget) tick(sys *SysManager, e *entity.SimpleEntity) {
 	if e.CompPosition != nil &&
 		e.CompMover != nil &&
 		e.CompAIMoveToTarget != nil {

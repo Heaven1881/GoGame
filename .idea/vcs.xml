@@ -2,5 +2,23 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/200sc/go-dist" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/200sc/klangsynthese" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/BurntSushi/toml" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/akavel/polyclip-go" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/davecgh/go-spew" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/disintegration/gift" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/golang/freetype" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/hajimehoshi/go-mp3" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/oakmound/oak" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/oakmound/shiny" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/oakmound/w32" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/oov/directsound-go" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/pkg/errors" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/stretchr/testify" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/golang.org/x/image" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/golang.org/x/mobile" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/golang.org/x/sync" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/golang.org/x/sys" vcs="Git" />
   </component>
 </project>

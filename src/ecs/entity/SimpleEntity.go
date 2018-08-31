@@ -1,15 +1,15 @@
-package Entity
+package entity
 
 import (
-	"../Comp"
+	"ecs/comp"
 	"fmt"
 )
 
 type SimpleEntity struct {
 	entityId           uint64
-	CompPosition       *Comp.Position
-	CompMover          *Comp.Mover
-	CompAIMoveToTarget *Comp.AIMoveToTarget
+	CompPosition       *comp.Position
+	CompMover          *comp.Mover
+	CompAIMoveToTarget *comp.AIMoveToTarget
 }
 
 func (entity *SimpleEntity) EntityId() uint64 {
@@ -22,8 +22,8 @@ func NewSimpleEntity() *SimpleEntity {
 	nextEntityId += 1
 	return &SimpleEntity{
 		entityId:     nextEntityId,
-		CompMover:    new(Comp.Mover),
-		CompPosition: new(Comp.Position),
+		CompMover:    new(comp.Mover),
+		CompPosition: new(comp.Position),
 	}
 }
 
@@ -35,7 +35,7 @@ func (entity *SimpleEntity) Print() {
 
 func (entity *SimpleEntity) SetMoveToTarget(target *SimpleEntity, maxSpeed float64) {
 	if target != nil {
-		entity.CompAIMoveToTarget = &Comp.AIMoveToTarget{
+		entity.CompAIMoveToTarget = &comp.AIMoveToTarget{
 			TargetEntityId: target.EntityId(),
 			MaxSpeed:       maxSpeed,
 		}

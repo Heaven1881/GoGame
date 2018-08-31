@@ -1,4 +1,4 @@
-package Comp
+package comp
 
 import (
 	"math"

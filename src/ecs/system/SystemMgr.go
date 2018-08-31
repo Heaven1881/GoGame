@@ -1,26 +1,26 @@
-package System
+package system
 
-import "../Entity"
+import "ecs/entity"
 
 type BaseSystem interface {
-	tick(sysMgr *SysManager, entity *Entity.SimpleEntity)
+	tick(sysMgr *SysManager, entity *entity.SimpleEntity)
 }
 
-type BaseSystemFunc func(sysMgr *SysManager, entity *Entity.SimpleEntity)
+type BaseSystemFunc func(sysMgr *SysManager, entity *entity.SimpleEntity)
 
-func (f BaseSystemFunc) tick(sysMgr *SysManager, entity *Entity.SimpleEntity) {
+func (f BaseSystemFunc) tick(sysMgr *SysManager, entity *entity.SimpleEntity) {
 	f(sysMgr, entity)
 }
 
 type SysManager struct {
 	systems  []BaseSystem
-	entities map[uint64]*Entity.SimpleEntity
+	entities map[uint64]*entity.SimpleEntity
 }
 
 func NewSysManager() *SysManager {
 	return &SysManager{
 		systems:  make([]BaseSystem, 0),
-		entities: make(map[uint64]*Entity.SimpleEntity, 0),
+		entities: make(map[uint64]*entity.SimpleEntity, 0),
 	}
 }
 
@@ -32,7 +32,7 @@ func (sysMgr *SysManager) Run() {
 	}
 }
 
-func (sysMgr *SysManager) AddEntity(entity *Entity.SimpleEntity) {
+func (sysMgr *SysManager) AddEntity(entity *entity.SimpleEntity) {
 	sysMgr.entities[entity.EntityId()] = entity
 }
 
