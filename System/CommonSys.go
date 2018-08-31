@@ -16,15 +16,17 @@ func (SimpleMover) tick(sys *SysManager, e *Entity.SimpleEntity) {
 	}
 }
 
-func distance(e1 *Entity.SimpleEntity, e2 *Entity.SimpleEntity) float64 {
+func DistanceBetween(e1 *Entity.SimpleEntity, e2 *Entity.SimpleEntity) float64 {
 	if e1.CompPosition != nil && e2.CompPosition != nil {
-		var disX = e1.CompPosition.X - e2.CompPosition.X
-		var disY = e1.CompPosition.Y - e2.CompPosition.Y
-		return math.Sqrt(disX*disX + disY*disY)
+		return e1.CompPosition.DistanceTo(e2.CompPosition)
 	} else {
 		// 没有位置的Entity之间，距离为无穷大
 		return math.Inf(1)
 	}
+}
+
+func dir(x1, y1, x2, y2 float64) float64 {
+	return math.Atan((y2-y1)/(x2-x1)) / math.Pi * 180
 }
 
 type AIMoveToTarget struct {
@@ -37,11 +39,11 @@ func (AIMoveToTarget) tick(sys *SysManager, e *Entity.SimpleEntity) {
 		var target = sys.entities[e.CompAIMoveToTarget.TargetEntityId]
 
 		if target != nil {
-			var dist = distance(target, e)
+			var dist = DistanceBetween(target, e)
 
 			if dist > 0 {
 
-				e.CompMover.Dir = math.Atan((target.CompPosition.Y-e.CompPosition.Y)/(target.CompPosition.X-e.CompPosition.X)) / math.Pi * 180
+				e.CompMover.Dir = e.CompPosition.DirectionTo(target.CompPosition)
 				e.CompMover.Speed = math.Min(dist, e.CompAIMoveToTarget.MaxSpeed)
 			} else {
 				e.CompMover.Dir = 0

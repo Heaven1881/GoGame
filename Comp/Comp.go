@@ -1,6 +1,9 @@
 package Comp
 
-import "math/rand"
+import (
+	"math"
+	"math/rand"
+)
 
 type Position struct {
 	X, Y float64
@@ -9,6 +12,16 @@ type Position struct {
 func (p *Position) Rand(r int)  {
 	p.X = float64(rand.Intn(r))
 	p.Y = float64(rand.Intn(r))
+}
+
+func (p *Position) DistanceTo(other *Position) float64 {
+	var disX = p.X - other.X
+	var disY = p.Y - other.Y
+	return math.Sqrt(disX*disX + disY*disY)
+}
+
+func (p *Position) DirectionTo(other *Position) float64 {
+	return math.Atan((other.Y-p.Y)/(other.X-p.X)) / math.Pi * 180
 }
 
 type Mover struct {

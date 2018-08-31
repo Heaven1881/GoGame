@@ -18,7 +18,7 @@ func main() {
 	var cat = Entity.NewSimpleEntity()
 	cat.CompPosition.Rand(100)
 
-	cat.SetMoveTarget(mouse, 10)
+	cat.SetMoveToTarget(mouse, 10)
 
 	sysMgr.AddEntity(mouse)
 	sysMgr.AddEntity(cat)

@@ -33,7 +33,7 @@ func (entity *SimpleEntity) Print() {
 	fmt.Printf("  > %+v\n", *entity.CompMover)
 }
 
-func (entity *SimpleEntity) SetMoveTarget(target *SimpleEntity, maxSpeed float64) {
+func (entity *SimpleEntity) SetMoveToTarget(target *SimpleEntity, maxSpeed float64) {
 	if target != nil {
 		entity.CompAIMoveToTarget = &Comp.AIMoveToTarget{
 			TargetEntityId: target.EntityId(),
