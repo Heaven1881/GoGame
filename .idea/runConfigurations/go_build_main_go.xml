@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
+    <module name="GoGame" />
+    <working_directory value="$PROJECT_DIR$/" />
+    <go_parameters value="-i" />
+    <kind value="FILE" />
+    <filePath value="cmd/main.go" />
+    <directory value="$PROJECT_DIR$/" />
+    <output_directory value="E:\git\GoGame\bin" />
+    <method v="2" />
+  </configuration>
+</component>
